@@ -115,7 +115,8 @@ cor(dataIA)
 
 # SOAL PROBABILITAS
 
-Hasil penelitian menyatakan bahwa setiap panen 1200 apel, selalu terdapat 120 buah apel yang busuk. Jika diambil 4 buah secara acak, tentukan peluang terambilnya 2 buah apel yang busuk.
+Hasil penelitian menyatakan bahwa setiap panen 1200 apel, selalu terdapat 120 buah apel yang busuk. 
+Jika diambil 4 buah secara acak, tentukan peluang terambilnya 2 buah apel yang busuk.
 
 ```{r}
 dbinom(x = 2, size = 4, prob = 1/10)
