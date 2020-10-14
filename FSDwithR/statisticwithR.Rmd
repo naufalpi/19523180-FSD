@@ -1,0 +1,123 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+install.packages("ISLR")
+```
+
+
+```{r}
+library(ISLR)
+```
+
+# Nomor 1
+```{r}
+dataCredit <- Credit
+head(dataCredit)
+```
+```{r}
+print("dari atas ke bawah adalah mean Rating, Cards, Age")
+mean(dataCredit$Rating)
+mean(dataCredit$Cards)
+mean(dataCredit$Age)
+```
+```{r}
+print("dari atas ke bawah adalah median Rating, Cards, Age")
+median(dataCredit$Rating)
+median(dataCredit$Cards)
+median(dataCredit$Age)
+```
+
+
+# Nomor 2
+```{r}
+library(lsr)
+```
+
+```{r}
+print("dari atas ke bawah adalah modus Gender, Student, Married")
+modeOf(dataCredit$Gender)
+modeOf(dataCredit$Student)
+modeOf(dataCredit$Married)
+```
+
+
+
+# Nomor 3
+# Persentil Education: 10
+```{r}
+quantile(x = dataCredit$Education, probs = 0.1)
+```
+# Persentil Education: 37
+```{r}
+quantile(x = dataCredit$Education, probs = 0.37)
+```
+# Persentil Education: 91
+```{r}
+quantile(x = dataCredit$Education, probs = 0.91)
+```
+
+
+# Nomor 4
+# Quartil dari Balance
+```{r}
+qBalance <- quantile(x = dataCredit$Balance, probs = c(0.25, 0.5, 0.75))
+qBalance
+```
+# Visualisasi quartil balance dengan Boxplot
+```{r}
+boxplot(qBalance)
+```
+
+
+# Nomor 5
+# Limit dan Rating
+```{r}
+dataLR <- data.frame(limit = dataCredit$Limit, rating = dataCredit$Rating)
+dataLR
+```
+```{r}
+# Scatter plot Limit dan Rating
+plot(dataLR$limit, dataLR$rating)
+```
+```{r}
+# Korelasi Limit dan Rating
+cor(dataLR)
+```
+# Age dan Cards
+```{r}
+dataAC <- data.frame(age = dataCredit$Age, cards = dataCredit$Cards)
+dataAC
+```
+```{r}
+# Scatter plot Age dan Cards
+plot(dataAC$age, dataAC$cards)
+```
+```{r}
+# Korelasi Age dan Cards
+cor(dataAC)
+```
+# Income dan Education
+```{r}
+dataIA <- data.frame(income = dataCredit$Income, education= dataCredit$Education)
+dataIA
+```
+```{r}
+# Scatter plot Income dan Education
+plot(dataIA$income, dataIA$education)
+```
+```{r}
+# Korelasi Income dan Education
+cor(dataIA)
+```
+
+# SOAL PROBABILITAS
+
+Hasil penelitian menyatakan bahwa setiap panen 1200 apel, selalu terdapat 120 buah apel yang busuk. Jika diambil 4 buah secara acak, tentukan peluang terambilnya 2 buah apel yang busuk.
+
+```{r}
+dbinom(x = 2, size = 4, prob = 1/10)
+```
+
